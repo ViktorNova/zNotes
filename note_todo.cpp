@@ -51,6 +51,8 @@ TodoNote::TodoNote(const QFileInfo& fileinfo, Note::Type type_new)
 	tree_view->setDropIndicatorShown(true);
 	tree_view->setDragDropMode(QAbstractItemView::InternalMove);
 	tree_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
+    tree_view->setFont(settings.getNoteFont());
+
 
 	connect(proxy_model, SIGNAL(dataChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(taskChanged(QModelIndex)));
 	connect(tree_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(taskChanged(QModelIndex)));
